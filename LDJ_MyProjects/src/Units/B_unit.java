@@ -1,8 +1,8 @@
 package Units;
 
-public class unit {
-	prefix Prefix;
-	body Body;
+public class B_unit {
+	A_rename Prefix;
+	A_body Body;
 	
 	// static methods for converting a string into separate parts
 	private static String[] split(String Unit) {
@@ -25,15 +25,15 @@ public class unit {
 		String bodyNoPrefix = "";
 		String Prefixs = "";
 		
-		for (body b : body.values()) {
+		for (A_body b : A_body.values()) {
 			if (b.getUsesPrefix())
 				bodyUsesPrefix += (bodyUsesPrefix.length() == 0 ? "" : "|") + b.getSymbol();
 			else
 				bodyNoPrefix += (bodyNoPrefix.length() == 0 ? "" : "|") + b.getSymbol();
 		}
 		
-		for (prefix p : prefix.values()) {
-			if (p != prefix.Unit)
+		for (A_rename p : A_rename.values()) {
+			if (p != A_rename.Unit)
 				Prefixs += (Prefixs.length() == 0 ? "" : "|") + p.getSymbol();
 		}
 		
@@ -42,8 +42,8 @@ public class unit {
 	}
 	
 	// constructors
-	public unit(prefix Prefix, body Body) {
-		if (Body.getUsesPrefix() || Prefix == prefix.Unit) {
+	public B_unit(A_rename Prefix, A_body Body) {
+		if (Body.getUsesPrefix() || Prefix == A_rename.Unit) {
 			this.Prefix = Prefix;
 			this.Body = Body;
 		}
@@ -52,29 +52,29 @@ public class unit {
 					String.format("'%s%s' is an invalid Unit", Prefix, Body));		
 	}
 	
-	public unit(String Prefix, String Body) {
-		this(prefix.getPrefix(Prefix), body.getBody(Body));
+	public B_unit(String Prefix, String Body) {
+		this(A_rename.getPrefix(Prefix), A_body.getBody(Body));
 	}
 	
-	public unit(String Prefix, body Body) {
-		this(prefix.getPrefix(Prefix), Body);
+	public B_unit(String Prefix, A_body Body) {
+		this(A_rename.getPrefix(Prefix), Body);
 	}
 	
-	public unit(prefix Prefix, String Body) {
-		this(Prefix, body.getBody(Body));
+	public B_unit(A_rename Prefix, String Body) {
+		this(Prefix, A_body.getBody(Body));
 	}
 	
-	public unit(unit Unit) {
+	public B_unit(B_unit Unit) {
 		this(Unit.getPrefix(), Unit.getBody());
 	}
 
-	public unit(String Unit) {
+	public B_unit(String Unit) {
 		this(split(Unit)[0], split(Unit)[1]);
 	}
 	
 	// basic set and get methods
-	public void setPrefix(prefix Prefix) {
-		if (getBody().getUsesPrefix() || (Prefix == prefix.Unit))
+	public void setPrefix(A_rename Prefix) {
+		if (getBody().getUsesPrefix() || (Prefix == A_rename.Unit))
 			this.Prefix = Prefix;
 		else
 			throw new IllegalArgumentException(
@@ -83,24 +83,24 @@ public class unit {
 	}
 	
 	public void setPrefix(String Prefix) {
-		setPrefix(prefix.getPrefix(Prefix));
+		setPrefix(A_rename.getPrefix(Prefix));
 	}
 	
-	public prefix getPrefix() {
+	public A_rename getPrefix() {
 		return Prefix;
 	}
 	
-	public void setBody(body Body) {
+	public void setBody(A_body Body) {
 		this.Body = Body;
 		if (!Body.getUsesPrefix())
 			setPrefix("");
 	}
 	
 	public void setBody(String Body) {
-		setBody(body.getBody(Body));
+		setBody(A_body.getBody(Body));
 	}
 	
-	public body getBody() {
+	public A_body getBody() {
 		return Body;
 	}
 	
