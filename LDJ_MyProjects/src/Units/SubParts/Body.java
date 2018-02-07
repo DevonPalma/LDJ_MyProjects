@@ -1,6 +1,6 @@
-package Units;
+package Units.SubParts;
 
-public enum A_body {
+public enum Body {
 	fahrenheit("F", false),
 	Celsius("C", false),
 	Kelvin("K", true),
@@ -28,7 +28,7 @@ public enum A_body {
 	String symbol;
 	boolean usesPrefix;
 	
-	A_body(String symbol, boolean usesPrefix) {
+	Body(String symbol, boolean usesPrefix) {
 		this.symbol = symbol;
 		this.usesPrefix = usesPrefix;
 	}
@@ -41,8 +41,8 @@ public enum A_body {
 		return usesPrefix;
 	}
 	
-	public static A_body getBody(String symbol) {
-		for (A_body b : A_body.values()) 
+	public static Body getBody(String symbol) {
+		for (Body b : Body.values()) 
 			if (b.getSymbol().equals(symbol) || b.toString().equals(symbol))
 				return b;
 		

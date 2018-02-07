@@ -1,6 +1,6 @@
-package Units;
+package Units.SubParts;
 
-public enum A_rename {
+public enum Prefix {
 	Giga("G", 9),
 	Mega("M", 6),
 	Kilo("k", 3),
@@ -16,7 +16,7 @@ public enum A_rename {
 	String symbol;
 	int powerValue;
 	
-	A_rename(String symbol, int powerValue) {
+	Prefix(String symbol, int powerValue) {
 		this.symbol = symbol;
 		this.powerValue = powerValue;
 	}
@@ -29,8 +29,8 @@ public enum A_rename {
 		return powerValue;
 	}
 	
-	public static A_rename getPrefix(String symbol) {
-		for (A_rename p : A_rename.values())
+	public static Prefix getPrefix(String symbol) {
+		for (Prefix p : Prefix.values())
 			if (p.getSymbol().equals(symbol) || p.toString().equals(symbol))
 				return p;
 		throw new IllegalArgumentException(
@@ -39,7 +39,7 @@ public enum A_rename {
 
 	@Override
 	public String toString() {
-		if (this == A_rename.Unit)
+		if (this == Prefix.Unit)
 			return "";
 		else
 			return super.toString();
