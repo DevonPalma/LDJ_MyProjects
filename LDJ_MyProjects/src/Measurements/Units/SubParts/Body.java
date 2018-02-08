@@ -1,4 +1,4 @@
-package Units.SubParts;
+package Measurements.Units.SubParts;
 
 public enum Body {
 	fahrenheit("F", false),

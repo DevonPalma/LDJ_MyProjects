@@ -1,7 +1,7 @@
-package Units;
+package Measurements.Units;
 
-import Units.SubParts.Body;
-import Units.SubParts.Prefix;
+import Measurements.Units.SubParts.Body;
+import Measurements.Units.SubParts.Prefix;
 
 public class Unit {
 	Prefix prefix;
@@ -22,7 +22,6 @@ public class Unit {
 		
 		return Return;
 	}
-	
 	
 	private static String getRegex() {
 		String bodyUsesPrefix = "";

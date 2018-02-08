@@ -1,11 +1,11 @@
 package Testing;
 
-import Units.*;
+import Measurements.Measurement;
+import Measurements.amount.DecodeDouble;
 
 
 public class test {
 	public static void main(String[] args) {
-		Measurement a = new Measurement("44.32GB");
-		System.out.print(a);
+		System.out.print(DecodeDouble.getSigFigs("00123.22200"));
 	}
 }
